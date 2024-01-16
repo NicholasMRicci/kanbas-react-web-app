@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td id="KanbasNavigation" valign="top"></td>
+                <td id="CourseNavigation" valign="top"></td>
+                <td id="CourseHome" valign="top"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+<script>
+    let kanbas = document.querySelector("#KanbasNavigation")
+    let course = document.querySelector("#CourseNavigation")
+    let home = document.querySelector("#CourseHome")
+
+    fetch('/Kanbas/Navigation/').then((resp) => {
+        return resp.text();
+    }).then((html) => {
+        kanbas.innerHTML = html;
+    })
+
+    fetch('/Kanbas/Courses/Navigation/').then((resp) => {
+        return resp.text();
+    }).then((html) => {
+        course.innerHTML = html;
+    })
+
+    fetch('/Kanbas/Courses/Home').then((resp) => {
+        return resp.text();
+    }).then((html) => {
+        home.innerHTML = html;
+    })
+</script>
+
+</html>
