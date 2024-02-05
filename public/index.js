@@ -27,7 +27,7 @@ async function setCourseNavigationActive() {
     let elems = [...document.querySelectorAll(".wd-navigation > li")]
     let id = window.location.pathname.split("/")[3];
     elems.forEach((elem) => {
-        if (elem.id == id) {
+        if (elem.id.toLowerCase() == id.toLowerCase()) {
             elem.className = "wd-active"
         }
     })
