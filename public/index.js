@@ -2,7 +2,7 @@ function setNavigationActive() {
     let elems = [...document.querySelectorAll(".wd-kanbas-navigation > li")]
     let id = window.location.pathname.split("/")[2];
     elems.forEach((elem) => {
-        if (elem.id == id) {
+        if (elem.id.toLowerCase() == id.toLowerCase()) {
             elem.className = "wd-active"
         }
     })
