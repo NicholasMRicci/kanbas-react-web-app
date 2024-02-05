@@ -5,35 +5,18 @@
     <table>
         <tbody>
             <tr>
-                <td id="KanbasNavigation" valign="top"></td>
-                <td id="AccountNavigation" valign="top"></td>
-                <td id="EditProfile" valign="top"></td>
+                <td id="/Kanbas/Navigation" valign="top"></td>
+                <td id="/Kanbas/Account/Navigation" valign="top"></td>
+                <td id="/Kanbas/Account/Profile/Edit" valign="top"></td>
             </tr>
         </tbody>
     </table>
 
 </body>
+<script src="/index.js"></script>
 <script>
-    let kanbas = document.querySelector("#KanbasNavigation")
-    let account = document.querySelector("#AccountNavigation")
-    let editProfile = document.querySelector("#EditProfile")
-
-    fetch('/Kanbas/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        kanbas.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Account/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        account.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Account/Profile/Edit').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        editProfile.innerHTML = html;
+    addEventListener("load", () => {
+        setTriFold(document.querySelectorAll("td")).then(setNavigationActive)
     })
 </script>
 

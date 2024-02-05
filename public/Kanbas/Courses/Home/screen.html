@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" href="/Kanbas/Courses/Home/screen.css">
+
 <body>
-    <table>
-        <tbody>
-            <tr>
-                <td id="KanbasNavigation" valign="top"></td>
-                <td id="CourseNavigation" valign="top"></td>
-                <td id="CourseHome" valign="top"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="vstack gap-2">
+        <div class="d-flex justify-content-between collapse-bar d-md-none">
+            <i data-bs-toggle="collapse" data-bs-target="#collapseExample" class="fa fa-bars fa-2x ps-3 pt-3"></i>
+            <i data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                class="fa fa-chevron-down fa-2x pe-3 pt-3"></i>
+        </div>
+        <div class="collapse vstack d-md-none" id="collapseExample">
+            <div class="d-flex justify-content-end"><i class="fa fa-times fa-2x" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"></i></div>
+            <div id="/Kanbas/Navigation/dropdown.html" class="trifold"></div>
+        </div>
+        <div class="collapse vstack d-md-none" id="collapseExample2">
+            <div class="d-flex justify-content-end"><i data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                    class="fa fa-times fa-2x"></i></div>
+            <div id="/Kanbas/Courses/Navigation" class="trifold"></div>
+        </div>
+        <div class="d-flex">
+            <div class="d-none d-md-block">
+                <div id="/Kanbas/Navigation" class="trifold"></div>
+            </div>
+            <div class="d-none d-md-block">
+                <div id="/Kanbas/Courses/Navigation" class="trifold"></div>
+            </div>
+            <div class="flex-fill">
+                <div id="/Kanbas/Courses/Modules" class="trifold"></div>
+            </div>
+            <div class="flex-grow-0 me-2 d-none d-lg-block" style="width: 250px">
+                <h2 style="margin-top: 0px">Course Status</h2>
+                <span>
+                    <button>Unpublish</button>
+                    <button>Published</button>
+                </span>
+                <ul>
+                    <li><a href="#">Import Existing Content</a></li>
+                    <li><a href="#">Import from Commons</a></li>
+                    <li><a href="#">Choose Home Page</a></li>
+                    <li><a href="#">View Course Stream</a></li>
+                    <li><a href="#">New Announcement</a></li>
+                    <li><a href="#">New Analytics</a></li>
+                    <li><a href="#">View Course Notifications</a></li>
+                </ul>
+                <h2>Comming Up</h2>
+                <a href="#">View Calendar</a>
+                <ul>
+                    <li><a href="#">Lecture CS4550.12631.202410 Sep 7 at 11:45am</a></li>
+                    <li><a href="#">Lecture CS4550.12631.202410 Sep 11 at 11:45am</a></li>
+                    <li><a href="#">Lecture CS5610 06 SP23 Lecture Sep 11 at 6pm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 <script>
-    let kanbas = document.querySelector("#KanbasNavigation")
-    let course = document.querySelector("#CourseNavigation")
-    let home = document.querySelector("#CourseHome")
-
-    fetch('/Kanbas/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        kanbas.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Courses/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        course.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Courses/Home').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        home.innerHTML = html;
+    addEventListener("load", () => {
+        setTriFold(document.querySelectorAll(".trifold")).then(setNavigationActive).then(setCourseNavigationActive)
     })
 </script>
+<script src="/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

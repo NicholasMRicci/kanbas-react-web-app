@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+</head>
+
+<body>
+    <table width="100%">
+        <tbody>
+            <tr>
+                <td valign="top" style="width: 80px" id="/Kanbas/Navigation"></td>
+                <td id="/Kanbas/Dashboard"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script src="/index.js"></script>
+<script>
+    addEventListener("load", () => {
+        setTriFold(document.querySelectorAll("td")).then(setNavigationActive)
+    })
+</script>
+
+</html>

@@ -5,35 +5,18 @@
     <table>
         <tbody>
             <tr>
-                <td id="KanbasNavigation" valign="top"></td>
-                <td id="CourseNavigation" valign="top"></td>
-                <td id="Grades" valign="top"></td>
+                <td id="/Kanbas/Navigation" valign="top"></td>
+                <td id="/Kanbas/Courses/Navigation" valign="top"></td>
+                <td id="/Kanbas/Courses/Grades" valign="top"></td>
             </tr>
         </tbody>
     </table>
 
 </body>
+<script src="/index.js"></script>
 <script>
-    let kanbas = document.querySelector("#KanbasNavigation")
-    let course = document.querySelector("#CourseNavigation")
-    let grades = document.querySelector("#Grades")
-
-    fetch('/Kanbas/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        kanbas.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Courses/Navigation/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        course.innerHTML = html;
-    })
-
-    fetch('/Kanbas/Courses/Grades/').then((resp) => {
-        return resp.text();
-    }).then((html) => {
-        grades.innerHTML = html;
+    addEventListener("load", () => {
+        setTriFold(document.querySelectorAll("td")).then(setNavigationActive).then(setCourseNavigationActive)
     })
 </script>
 
