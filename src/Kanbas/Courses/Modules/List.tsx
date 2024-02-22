@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "./index.css";
+import "./List.css";
 import database from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
@@ -9,7 +9,14 @@ function ModuleList() {
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
     <>
-      {/* <!-- Add buttons here --> */}
+      <span>
+        <button type="button" className="btn btn-primary">Collapse All</button>
+        <button type="button" className="btn btn-primary">View Progress</button>
+        <select className="form-select">
+          <option>Publish All</option>
+        </select>
+        <button type="button" className="btn btn-primary">Module</button>
+      </span>
       <ul className="list-group wd-modules">
         {modulesList.map((module, index) => (
           <li key={index}

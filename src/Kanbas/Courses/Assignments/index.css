@@ -6,3 +6,18 @@
     padding: 10px;
     background-color: white;
 }
+
+.form-control {
+    width: auto;
+    display: inline;
+}
+
+.wd-modules li {
+    font-size: 20px;
+}
+
+.wd-modules li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
